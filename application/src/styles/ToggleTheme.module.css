@@ -1,0 +1,14 @@
+#toggle_theme_icon {
+    height: 15px;
+    width: 15px;
+
+    color: var(--global-icon-color);
+
+    transition: 1s ease-in-out;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
