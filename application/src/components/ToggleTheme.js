@@ -25,6 +25,7 @@ const ToggleTheme = () => {
         if (theme === darkTheme) {
             body.classList.replace(darkTheme, lightTheme);
             e.target.classList.remove(clickedClass);
+            localStorage.setItem('theme', 'light')
             theme = lightTheme;
         } else {
             body.classList.replace(lightTheme, darkTheme);

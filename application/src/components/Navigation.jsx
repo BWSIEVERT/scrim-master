@@ -1,12 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 import classes from '../styles/Navigation.module.css'
 import ToggleTheme from '../components/ToggleTheme'
 import {
     FiMenu
 } from 'react-icons/fi'
+import {
+    CgClose
+} from 'react-icons/cg'
 import Logo from '../images/scrimaster-logo-white.png'
+import Burger from '../components/Burger'
+import Menu from './Menu'
 
 function Navigation() {
+
+    const [ open, setOpen ] = useState(false);
+
     return (
         <>
         <nav className={classes.navigation_container}>
@@ -18,7 +26,8 @@ function Navigation() {
                     <ToggleTheme  />
                 </div>
                 <div className={classes.navigation_container__buttons_menu}>
-                    <FiMenu id={classes['toggle_menu_icon']}/>
+                    <Burger open={open} setOpen={setOpen} />
+                    <Menu open={open} setOpen={setOpen} />
                 </div>
             </div>
         </nav>
