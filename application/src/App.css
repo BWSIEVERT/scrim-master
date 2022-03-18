@@ -49,6 +49,8 @@ table {
 
 :root {
   --lg-bg: #430590;
+  --lg-alt-bg: #ffffff;
+  --dk-alt-bg: #340d74;
   --lg-text: #000000;
   --lg-icon: #ffffff;
   --global-icon-color: #ffffff;
@@ -56,17 +58,25 @@ table {
   --dk-text: #ffffff;
   --lg-toggle-icon: #430590;
   --dk-toggle-icon: #ffffff;
-  --logo: url('./images/scrimaster-logo.png')
+  --logo: url('./images/scrimaster-logo.png');
+  --dk-border: #340D74;
+  --lg-border: #A539DF;
 }
 
 body.light {
   --background-color: var(--lg-bg);
+  --background-alt-color: var(--lg-alt-bg);
   --text-color: var(--lg-text);
   --icon-color: var(--global-icon-color);
+  --border-color: var(--lg-border);
+  --image: url('./images/global-background-alt-lg.png');
 }
 
 body.dark {
   --background-color: var(--dk-bg);
   --text-color: var(--dk-text);
   --icon-color: var(--global-icon-color);
+  --background-alt-color: var(--dk-alt-bg);
+  --border-color: var(--dk-border);
+  --image: url('./images/global-background-alt-dk.png');
 }
