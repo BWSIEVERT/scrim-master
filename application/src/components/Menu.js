@@ -7,6 +7,14 @@ import { CgClose } from 'react-icons/cg'
 import { Link } from 'react-router-dom';
 
 const Menu = ({open, setOpen}) => {
+
+    const TeleportToSignIn = () => {
+        window.location.href = '/signin';
+    };
+    const TeleportToSignUp = () => {
+        window.location.href = '/signup';
+    };
+
     return (
         <nav className={open ? classes.navOpen : classes.navClosed} open={open}>
             <div className={classes.icon_container}>
@@ -19,7 +27,7 @@ const Menu = ({open, setOpen}) => {
             </div>
             <div className={classes.button_container_signin}>
                 <Link to='/signin' style={{textDecoration: 'none'}}>
-                <button onclick="window.location.href = '/signin'" className={classes.button_container_signin__button}>
+                <button onClick={TeleportToSignIn} className={classes.button_container_signin__button}>
                     Sign in
                 </button>
                 </Link>
@@ -30,7 +38,7 @@ const Menu = ({open, setOpen}) => {
                 </p>
             </div>
             <div className={classes.button_container_signup}>
-                <button href='/signup' className={classes.button_container_signup__button}>
+                <button onClick={TeleportToSignUp} className={classes.button_container_signup__button}>
                     Sign up
                 </button>
             </div>
