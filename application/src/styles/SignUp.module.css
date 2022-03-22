@@ -15,7 +15,7 @@
 }
 
 .page_container__form_container {
-    height: 40vh;
+    height: 60vh;
     width: 25%;
 
     border-radius: 3pt;
@@ -38,6 +38,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.error_container {
+    height: auto;
+    width: 90%;
+
+    background-color: #FFCCCC;
+
+    border-radius: 3pt;
+
+    color: #000000;
 }
 
 .title_container__title {

@@ -40,6 +40,17 @@
     align-items: center;
 }
 
+.error_container {
+    height: auto;
+    width: 90%;
+
+    background-color: #FFCCCC;
+
+    border-radius: 3pt;
+
+    color: #000000;
+}
+
 .title_container__title {
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;

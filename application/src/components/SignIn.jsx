@@ -1,10 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 
 import classes from "../styles/SignIn.module.css";
 
 import Navigation from "../components/Navigation";
 
+import axios from 'axios';
+
 function SignIn() {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+
+  const handleChange = ({ currentTarget: input }) => {
+    setData({
+      ...data,
+      [input.name]: input.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "http://localhost:8080/api/auth";
+      const { data: res } = await axios.post(url, data);
+      localStorage.setItem("token", res.data)
+      window.location = '/'
+      console.log(res.message);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
+  };
+
   return (
     <>
       <Navigation />
@@ -15,43 +50,39 @@ function SignIn() {
               Sign in to Scrimaster
             </h2>
           </div>
+          {error && <div className={classes.error_container}>{error}</div>}
           <div className={classes.formContainer}>
-          <form>
-            <label htmlFor="email" className={classes.label}>
-              <input
-                type="text"
-                name="email"
-                required
-                autoComplete='off'
-              />
-              <span className={classes.placeholder}>Email</span>
-            </label>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="email" className={classes.label}>
+                <input 
+                  type="text" 
+                  name="email" 
+                  value={data.email}
+                  required 
+                  autoComplete="off" 
+                  onChange={handleChange}
+                />
+                <span className={classes.placeholder}>Email</span>
+              </label>
 
-            {/* <label for="username" className={modalStyles.label}>
-              <input type="text" name="username" required />
-              <span className={modalStyles.placeholder}>Username</span>
-            </label> */}
+              <label htmlFor="password" className={classes.label}>
+                <input
+                  type="password"
+                  name="password"
+                  value={data.password}
+                  required
+                  autoComplete="off"
+                  onChange={handleChange}
+                />
+                <span className={classes.placeholder}>Password</span>
+              </label>
 
-            <label htmlFor="password" className={classes.label}>
-              <input
-                autoComplete="off"
-                type="password"
-                name="password"
-                required
-              />
-              <span className={classes.placeholder}>Password</span>
-            </label>
-
-            <div className={classes.signUpButton}>
-              <button
-                type="submit"
-              >
-                Sign Up
-              </button>
-            </div>
-          </form>
+              <div className={classes.signUpButton}>
+                <button type="submit">Sign Up</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
