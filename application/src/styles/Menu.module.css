@@ -5,15 +5,15 @@
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    position: absolute;
     top: 0;
     right: 0;
     transition: transform 0.3s ease-in-out;
     background-color: var(--background-color);
     width: 20%;
-    position: fixed;
+    position: absolute;
     transform: translateX(0);
     transition: 0.7s ease-in-out;
+    z-index: 900;
 }
 .navClosed {
     display: flex;
@@ -21,7 +21,6 @@
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    position: absolute;
     top: 0;
     right: 0;
     transition: transform 0.3s ease-in-out;

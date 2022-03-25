@@ -18,6 +18,7 @@ const Menu = ({ open, setOpen }) => {
 
   const handleLogout = () => {
       localStorage.removeItem('token');
+      localStorage.removeItem('ACTIVISION_ID')
       window.location.reload();
   }
 

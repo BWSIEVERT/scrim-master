@@ -27,8 +27,9 @@ function SignIn() {
       const url = "http://localhost:8080/api/auth";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data)
-      window.location = '/'
-      console.log(res.message);
+      localStorage.setItem("ACC_EMAIL", res.email)
+      window.location = '/dashboard'
+      console.log(res);
     } catch (error) {
       if (
         error.response &&
@@ -78,7 +79,7 @@ function SignIn() {
               </label>
 
               <div className={classes.signUpButton}>
-                <button type="submit">Sign Up</button>
+                <button type="submit">Sign In</button>
               </div>
             </form>
           </div>

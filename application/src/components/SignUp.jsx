@@ -16,7 +16,7 @@ function SignUp() {
         name: '',
         email: '',
         password: '',
-        avatar: ''
+        activisionId: ''
     })
 
     const [ error, setError ] = useState("");
@@ -99,13 +99,13 @@ function SignUp() {
               <label className={classes.label}>
                 <input 
                     type="text" 
-                    name="avatar"
-                    value={data.avatar}
+                    name="activisionId"
+                    value={data.activisionId}
                     required 
                     autoComplete="off"
                     onChange={handleChange}
                 />
-                <span className={classes.placeholder}>Avatar Url</span>
+                <span className={classes.placeholder}>Activision ID</span>
               </label>
 
               <div className={classes.signUpButton}>
